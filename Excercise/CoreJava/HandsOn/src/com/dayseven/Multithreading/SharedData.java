@@ -1,4 +1,4 @@
-package com.multithreading;
+package com.dayseven.Multithreading;
 
 public class SharedData implements Runnable {
 
