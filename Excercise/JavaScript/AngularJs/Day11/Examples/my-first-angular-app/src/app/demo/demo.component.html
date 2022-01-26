@@ -1,0 +1,19 @@
+<div>
+    <h3>Display All the Employees</h3>
+    <table class="table table-stribed">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let e of employees'>
+                <td>{{e.id}}</td>
+                <td>{{e.name}}</td>
+                <td>{{e.salary}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

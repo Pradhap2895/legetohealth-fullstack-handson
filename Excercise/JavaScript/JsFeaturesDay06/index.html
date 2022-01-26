@@ -12,20 +12,29 @@
     </style>
 </head>
 <body>
-    <h1>Welcome to Web Application</h1>
-    <img src="images/one1.jpg" width="300" height="300" onclick="test(event)" />
+    <h1 id='i1' style='color: violet;'>Welcome to JavaScript</h1>
+    <img src="images/one1.jpg" id="mainImage" width="300" height="300"  />
     <hr/>
-    <div onclick="handleClick()">
+    <div onclick="handleClick(event)">
         <img src="images/one1.jpg" class="gallery"/>
         <img src="images/two.jpg" class="gallery"/>
         <img src="images/three.jpg" class="gallery"/>
         <img src="images/four.jpg" class="gallery"/>
     </div>
 
-    <button onclick="test()">MyButton</button>
     <script type='text/javascript'>
-        function handleClick(){
-            alert(`hi: `+event.target.tagName);
+        var counter=0;
+        function handleClick(event){
+           if(counter > 2){
+               counter = 0;
+           }
+           var colors = ['red','green','blue'];
+           var x = document.getElementById('i1');
+           x.style.color = colors[counter++];
+           var ele = document.getElementById('mainImage');
+           if(event.target.tagName=='IMG'){
+               ele.src = event.target.src;
+           }
         }
     </script>
 </body>

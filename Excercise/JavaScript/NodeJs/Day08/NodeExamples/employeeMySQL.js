@@ -1,10 +1,12 @@
 let app = require('express')();
 let mySql = require('mysql');
+let cors = require('cors');
 let dbUrl="mysql://localhost:3306/legato_db";
 let port =9090;
 
 app.listen(port, ()=> console.log(`Node server is running in ${port}`));
 
+app.use(cors({origin: 'http://localhost:3000'}));
 var connection = mySql.createConnection({
     host: '127.0.0.1',
     port: '3306',
@@ -55,37 +57,37 @@ app.get('/employee/:id', (request, response) => {
 });
 
 //Delete a particular record using employee:id
-app.get('/employeeDelete/:id', (request, response) => {
+app.delete('/employeeDelete/:id', (request, response) => {
     let id=parseInt(request.params.id);
 
     connection.query('DELETE from employee WHERE id=?', id, (err,result,fields)=>{
        if(!err){
-        response.json({sucess:'record has been deleted'});
+        response.json({success:'record has been deleted'});
        }
     });
 });
 
 
 //insert into values
-app.get('/employee/:name/:salary', (request, response) => {
+app.post('/employee/:name/:salary', (request, response) => {
     let name=request.params.name;
     let salary=parseFloat(request.params.salary);
 
     connection.query('INSERT INTO employee (name, salary) VALUES (?, ?)', [name,salary], (err,result,fields)=>{
        if(!err){
-        response.json({sucess:'One record inserted !'});
+        response.json({success:'One record inserted !'});
        }
     });
 });
 
 //update a particluar record
-app.get('/employeeUpdate/:id/:salary', (request, response) => {
+app.put('/employeeUpdate/:id/:salary', (request, response) => {
     let id=parseInt(request.params.id);
     let salary=parseFloat(request.params.salary);
 
     connection.query('UPDATE employee SET salary=? WHERE id=?', [salary,id], (err,result,fields)=>{
        if(!err){
-        response.json({sucess:'One record updated !'});
+        response.json({success:'One record updated !'});
        }
     });
 });
