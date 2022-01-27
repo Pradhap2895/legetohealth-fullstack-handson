@@ -68,7 +68,7 @@ export class EmployeeStore extends React.Component{
       let url=`http://localhost:9090/employee/${name}/${salary}`;
 
       axios.post(url)
-      .then((response)=> <EmployeeItems />)
+      .then((response)=> alert(response.statusText+' Value inserted!'))
       .catch((err)=>console.log(err))
     }
 
@@ -110,6 +110,15 @@ export class EmployeeUpdate extends React.Component{
 
     handleSubmit = (event)=>{
         event.preventDefault();
+        let salary = this.state.salary;
+        let id = this.state.id;
+
+      
+        let url=`http://localhost:9090/employee/${id}/${salary}`;
+  
+        axios.post(url)
+        .then((response)=>alert(response.statusText))
+        .catch((err)=>console.log(err))
     }
 
     handleChange=(event)=>{
@@ -121,8 +130,8 @@ export class EmployeeUpdate extends React.Component{
             <form onSubmit={this.handleSubmit}>
             
                 <label>
-                    Name <input type='text' name='name' autoCorrect='off'
-                     onChange={this.handleChange}></input>
+                    {/* Name <input type='text' name='name' autoCorrect='off'
+                     onChange={this.handleChange}></input> */}
                 </label>
                 <br />
                 <label>
@@ -133,7 +142,7 @@ export class EmployeeUpdate extends React.Component{
                 <button type='submit' className='btn btn-primary'>Update</button>
             </form>
             <div>
-                Id: {this.state._id}, Name: {this.state.name}, Salary: {this.state.salary}
+               Salary: {this.state.salary}
             </div>
 
 

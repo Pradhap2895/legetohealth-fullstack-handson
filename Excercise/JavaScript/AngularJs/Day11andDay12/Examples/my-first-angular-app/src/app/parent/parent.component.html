@@ -1,0 +1,15 @@
+<div>
+    <h2>Parent Component   First Name: {{firstname}}</h2>
+  
+    <h3>Total number of clicks: {{clicks}}</h3>
+    <!-- <div>
+    <app-child [username]="firstname"></app-child>
+    </div> -->
+
+<h2>Iterating child Component</h2>
+<div *ngFor="let u of users">
+    <app-child [username]="u" (eventCounter)="numberOfClicks($event)"></app-child>
+</div>
+
+</div>
+

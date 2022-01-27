@@ -1,0 +1,14 @@
+<div>
+<!--<p>app-data-binding works!</p>
+<h3>Event Binding, UserName: {{username}}</h3>
+<input type='text' autocomplete="off" #un>
+<button (click)="handleFresh(un.value)">MyButton</button>
+<div [hidden]="toggleButton">Hello Message</div>
+<button [disabled]="toggleButton">MyButton2</button> -->
+<h3>Two way databinding</h3><hr />
+<input type='text' name='msg' [(ngModel)]='message'>
+<input type='text' name='msg2' [(ngModel)]='message'>
+<div>
+    Message: {{message}}
+</div>
+</div>
