@@ -1,0 +1,25 @@
+<div>
+    <h3>All Employees</h3><hr />
+    <button (click)="handleRefresh()">Refresh</button>
+    <!-- <p>{{employees | json}}</p> -->
+    <div>
+        <table class="table table-stribed">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr *ngFor='let e of employees'>
+                        <td>{{e.id}}</td>
+                        <td>{{e.name}}</td>
+                        <td>{{e.salary}}</td>
+                    </tr>
+                </tbody>
+       
+
+        </table>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div>
+    <h3>Store Employee</h3>
+    <div *ngIf="success"><span class="alert alert-success">{{success}}</span></div><hr />
+    <form [formGroup]="employee" (ngSubmit)="handleSubmit()">
+        <div class="row">
+            <div class="col-5">
+                <div>
+                    Name <input type="text" formControlName="name" class="form-control">
+                    <div class="alert alert-danger" [hidden]="employee.controls['name'].valid || employee.controls['name'].pristine"> Name is mandatory</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-5">
+                <div>
+                    Salary <input type="text" formControlName="salary" class="form-control">
+                    <div class="alert alert-danger" [hidden]="employee.controls['salary'].valid || employee.controls['salary'].pristine"> Salary is mandatory</div>
+                </div>
+            </div>
+        </div>
+
+       <div class="row">
+           <div class="col-5">
+            <div>
+                <input type="submit" value="Submit" [disabled]="employee.invalid" class="btn btn-primary">
+            </div>
+           </div>
+       </div>
+       
+    </form>
+   
+
+</div>

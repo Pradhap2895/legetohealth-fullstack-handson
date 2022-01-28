@@ -6,7 +6,7 @@ let port =9090;
 
 app.listen(port, ()=> console.log(`Node server is running in ${port}`));
 
-app.use(cors({origin: 'http://localhost:3000'}));
+app.use(cors({origin: 'http://localhost:4200'}));
 var connection = mySql.createConnection({
     host: '127.0.0.1',
     port: '3306',
@@ -49,7 +49,7 @@ app.get('/employee/:id', (request, response) => {
                 response.json(record);
             },()=>{
                 if(x==0){
-                    response.json({error: `Sorry id= ${id} is not found`});
+                    response.status(404).json({error: `Sorry id= ${id} is not found`});
                 }
             });
        }
