@@ -12,22 +12,17 @@ export class FetchEmployeesComponent implements OnInit {
   constructor(private _service: EmployeeService,private _builder: FormBuilder) {
     
    }
+   employees:any=undefined;
 
   ngOnInit(): void {
+
+    this._service.fetchEmployees().subscribe(response=>{
+      this.employees=response;});
+     
   }
   // employee = this._builder.group({
   //   id: [],name:[],salary:[]
   // })
-  employees:any=undefined;
-
-  errMsg:any=undefined;
-  handleRefresh():void{
-    this._service.fetchEmployees().subscribe(response=>{
-      this.employees=response;
-      console.log(response);
-    },err => {
-      this.errMsg = err.error.error;
-    })
-  }
+ 
 
 }

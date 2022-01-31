@@ -28,4 +28,11 @@ export class EmployeeService {
     let url = `${this.baseUrl}/employee/${empId}`;
     return this._client.get(url);
    }
+
+   
+  fetchEmployeeByName(empName: string): Observable<any>{
+    console.log(`fetchByName=${empName}`)
+    let url = `${this.baseUrl}/employeeByName/${empName}`;
+    return this._client.get(url);
+   }
 }

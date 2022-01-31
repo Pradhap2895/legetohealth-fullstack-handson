@@ -56,6 +56,11 @@ app.get('/employee/:id', (request, response) => {
     });
 });
 
+app.get('/employeeByName/:name', (request, response) => {
+    let name=request.params.name;
+    console.log(name);
+});
+
 //Delete a particular record using employee:id
 app.delete('/employeeDelete/:id', (request, response) => {
     let id=parseInt(request.params.id);
