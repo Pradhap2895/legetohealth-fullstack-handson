@@ -1,0 +1,24 @@
+server:
+  port: 5656
+spring:
+  application:
+    name: zuul-gateway
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"
+
+zuul:
+  ignored-services: "*"
+  prefix: /zuulApi
+  routes:
+    clientapp : /ca/**
+    firstapp : /fa/**
